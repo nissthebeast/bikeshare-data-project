@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# Project-specific
+data/
+keys/
+*-service-account.json
