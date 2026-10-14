@@ -228,3 +228,4 @@ logs/
 data/
 keys/
 *-service-account.json
+.DS_Store
