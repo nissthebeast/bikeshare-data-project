@@ -24,6 +24,17 @@ cleaned as (
         _loaded_at
     from source
 
+),
+
+deduped as (
+
+    select *
+    from cleaned
+    qualify row_number() over (
+        partition by ride_id
+        order by _loaded_at desc, ended_at desc
+    ) = 1
+
 )
 
-select * from cleaned
+select * from deduped

@@ -33,3 +33,5 @@ models:
   bikeshare:
     staging:
       +materialized: view
+    marts:
+      +materialized: table

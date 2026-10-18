@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_trips
+    description: One row per bikeshare trip, cleaned and typed from raw.trips.
+    columns:
+      - name: ride_id
+        description: Unique trip identifier from the source.
+        tests:
+          - unique
+          - not_null
+      - name: started_at
+        tests:
+          - not_null
+      - name: rideable_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['classic_bike', 'electric_bike']
+                config:
+                  severity: warn
+      - name: rider_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['member', 'casual']
